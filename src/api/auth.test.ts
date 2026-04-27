@@ -3,7 +3,7 @@ import { getAPIKey } from "./auth.js";
 
 describe("getAPIKey", () => {
   it("returns null when authorization header is missing", () => {
-    expect(getAPIKey({})).toBe(expect.any(String));
+    expect(getAPIKey({})).toBeNull();
   });
 
   it("returns null when authorization header has wrong scheme", () => {
