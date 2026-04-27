@@ -1,8 +1,8 @@
 import js from "@eslint/js";
-import globals from "globals";
-import tseslint from "typescript-eslint";
 import tseslintSecurity from "eslint-plugin-security";
 import { defineConfig } from "eslint/config";
+import globals from "globals";
+import tseslint from "typescript-eslint";
 
 export default defineConfig([
   {
@@ -13,5 +13,8 @@ export default defineConfig([
     ignores: ["dist/**"],
   },
   tseslint.configs.recommended,
-  tseslintSecurity.configs.recommended,
+  {
+    ...tseslintSecurity.configs.recommended,
+    ignores: ["dist/**"],
+  },
 ]);
