@@ -1,0 +1,26 @@
+name: Deployment
+
+"on":
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Checkout main
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Notely
+        run: npm run build
